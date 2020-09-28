@@ -74,11 +74,11 @@ echo "-----------------------------------------------------------"
 sudo /var/www/html/demo_daten_erzeugen.php
 echo " "
 read -p " Bitte [EINGABE] drücken. "
-
 echo " "
-echo "Der Raspberry wird jetzt neu gestartet. "
+echo "#############################################################"
+echo "# Setup ist abgeschlossen, bitte starte den Docker nun neu. #"
+echo "#############################################################"
 
-sudo reboot
 
 exit 0
 
