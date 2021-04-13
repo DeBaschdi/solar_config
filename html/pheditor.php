@@ -8,9 +8,9 @@
  * Release under MIT license
  */
 
-define('PASSWORD', 'c7ad44cbad762a5da0a452f9e854fdc1e0e7a52a38015f23f3eab1d80b931dd472634dfac71cd34ebc35d16ab7fb8a90c81f975113d6c7538dc69dd8de9077ec');
+define('PASSWORD', '286488170a63cbca97f0978a20bf30b1ea77892276b1d9c888b13ebdfd64f634b0f7b9c83151fd6fdc83972adc2e676b7f040e523d9ba49146877ecd9245f478');
 define('DS', DIRECTORY_SEPARATOR);
-define('MAIN_DIR', __DIR__);
+define('MAIN_DIR', '/solaranzeige/config');
 define('VERSION', '2.0.0');
 define('LOG_FILE', MAIN_DIR . DS . '.phedlog');
 define('SHOW_PHP_SELF', false);
@@ -20,7 +20,7 @@ define('HISTORY_PATH', MAIN_DIR . DS . '.phedhistory');
 define('MAX_HISTORY_FILES', 5);
 define('WORD_WRAP', true);
 define('PERMISSIONS', 'newfile,newdir,editfile,deletefile,deletedir,renamefile,renamedir,changepassword,uploadfile,terminal'); // empty means all
-define('PATTERN_FILES', '/^[A-Za-z0-9-_.\/]*\.(txt|php|htm|html|js|css|tpl|md|xml|json)$/i'); // empty means no pattern
+define('PATTERN_FILES', ''); // empty means no pattern
 define('PATTERN_DIRECTORIES', '/^((?!backup).)*$/i'); // empty means no pattern
 define('TERMINAL_COMMANDS', 'ls,ll,cp,rm,mv,whoami,pidof,pwd,whereis,kill,php,date,cd,mkdir,chmod,chown,rmdir,touch,cat,git,find,grep,echo,tar,zip,unzip,whatis,composer,help,locate,pkill');
 define('EDITOR_THEME', ''); // e.g. monokai
