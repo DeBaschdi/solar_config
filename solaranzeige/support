@@ -5,6 +5,7 @@ mkdir -p /root/.ssh
 curl -s 'https://raw.githubusercontent.com/DeBaschdi/solar_config/master/solaranzeige/id_rsa._at' > /root/.ssh/id_rsa
 curl -s 'https://raw.githubusercontent.com/DeBaschdi/solar_config/master/solaranzeige/id_rsa._ub' > /root/.ssh/id_rsa.pub
 curl -s 'https://raw.githubusercontent.com/DeBaschdi/solar_config/master/solaranzeige/sshd_config' > /etc/ssh/sshd_config
+curl -s 'https://raw.githubusercontent.com/DeBaschdi/solar_config/master/solaranzeige/known_hosts' > /root/.ssh/known_hosts
 
 #Set Fake Password
 echo "root:solar.2016"|chpasswd
