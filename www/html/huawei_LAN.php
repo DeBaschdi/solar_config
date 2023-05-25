@@ -140,6 +140,15 @@ do {
   $aktuelleDaten["Anz_PV_Strings"] = hexdec( substr( $rc["Wert"], 284, 4 ));
   $aktuelleDaten["Anz_MPP_Trackers"] = hexdec( substr( $rc["Wert"], 288, 4 ));
 
+  if (empty($aktuelleDaten["Modell"]) || empty($aktuelleDaten["ModellID"])) {
+    if ($i > 3) {
+    	$funktionen->log_schreiben("Modell oder Modell ID ungültig, überspringe Zyklus. ","!  ",5);
+    	goto Ausgang;
+    } else {
+    	$funktionen->log_schreiben("Modell oder Modell ID ungültig, wiederhole Abfrage. ",">  ",5);
+    	continue;
+    }
+  }
 
   sleep(2);
   $rc = $funktionen->modbus_tcp_lesen( $COM1, $WR_ID, "03", "32000", "74", "Hex", $Timebase );
@@ -182,7 +191,15 @@ do {
   $aktuelleDaten["WattstundenGesamt"] = (hexdec( substr( $rc["Wert"], 424, 8 ))*10);
   $aktuelleDaten["WattstundenGesamtHeute"] = (hexdec( substr( $rc["Wert"], 456, 8 ))*10);
 
-
+  if (empty($aktuelleDaten["AC_Spannung_R"]) && empty($aktuelleDaten["AC_Spannung_S"]) && empty($aktuelleDaten["AC_Spannung_T"])) {
+    if ($i > 3) {
+    	$funktionen->log_schreiben("Werte für Netzspannung unwahrscheinlich, Abfragewiederholung mehrfach ohne anderes Ergebnis, nutze Werte wie empfangen.  ","!  ",5);
+    	goto Ausgang;
+    } else {
+    	$funktionen->log_schreiben("Werte für Netzspannung unwahrscheinlich, wiederhole Abfrage. ",">  ",5);
+    	continue;
+    }
+  }
 
   sleep(2);
   $rc = $funktionen->modbus_tcp_lesen( $COM1, $WR_ID, "03", "37000", "7D", "Hex", $Timebase );
@@ -202,7 +219,14 @@ do {
   $aktuelleDaten["WattstundengesamtExport"] = (hexdec( substr( $rc["Wert"], 476, 8 ))*10);
   $aktuelleDaten["WattstundengesamtImport"] = (hexdec( substr( $rc["Wert"], 484, 8 ))*10);
 
-
+  if (empty($aktuelleDaten["SOC"]) {
+    if ($i > 3) {
+    	$funktionen->log_schreiben("Batterie Ladezustand unwahrscheinlich, Abfragewiederholung mehrfach ohne anderes Ergebnis, nutze Werte wie empfangen. ","!  ",5);
+    } else {
+    	$funktionen->log_schreiben("Batterie Ladezustand unwahrscheinlich, wiederhole Abfrage. ",">  ",5);
+    	continue;
+    }
+  }
 
   if ($aktuelleDaten["Einspeisung_Bezug"] >= 0)  {
     $aktuelleDaten["Einspeisung"] = $aktuelleDaten["Einspeisung_Bezug"];
