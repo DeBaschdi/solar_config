@@ -2239,6 +2239,14 @@ if ($HM_Verbindung) {
           case "AussenTemperatur":
             $DataString .= "Antwort".$i."=dom.GetObject('".$Parameter."').State(".$aktuelleDaten["AussenTemperatur"].")";
             break;
+          
+          case "Batterie_Ladung":
+            $DataString .= "Antwort".$i."=dom.GetObject('".$Parameter."').State(".$aktuelleDaten["Batterie_Ladung"].")";
+            break;
+          
+          case "Batterie_Entladung":
+            $DataString .= "Antwort".$i."=dom.GetObject('".$Parameter."').State(".$aktuelleDaten["Batterie_Entladung"].")";
+            break;
 
           default:
             $funktionen->log_schreiben( "Es gibt Probleme mit den HomeMatic Variablen! Bitte prüfen ob diese Variable auch zu Ihrem Regler gehört: ".$Parameter, "   ", 5 );
