@@ -218,7 +218,7 @@ do {
   $aktuelleDaten["WattstundengesamtExport"] = (hexdec( substr( $rc["Wert"], 476, 8 ))*10);
   $aktuelleDaten["WattstundengesamtImport"] = (hexdec( substr( $rc["Wert"], 484, 8 ))*10);
 
-  if (empty($aktuelleDaten["SOC"]) {
+  if (empty($aktuelleDaten["SOC"])) {
     if ($i > 3) {
     	$funktionen->log_schreiben("Batterie Ladezustand unwahrscheinlich, Abfragewiederholung mehrfach ohne anderes Ergebnis, nutze Werte wie empfangen. ","!  ",5);
     } else {
