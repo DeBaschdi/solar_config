@@ -194,7 +194,6 @@ do {
   if (empty($aktuelleDaten["AC_Spannung_R"]) && empty($aktuelleDaten["AC_Spannung_S"]) && empty($aktuelleDaten["AC_Spannung_T"])) {
     if ($i > 3) {
     	$funktionen->log_schreiben("Werte für Netzspannung unwahrscheinlich, Abfragewiederholung mehrfach ohne anderes Ergebnis, nutze Werte wie empfangen.  ","!  ",5);
-    	goto Ausgang;
     } else {
     	$funktionen->log_schreiben("Werte für Netzspannung unwahrscheinlich, wiederhole Abfrage. ",">  ",5);
     	continue;
